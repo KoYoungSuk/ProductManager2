@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,11 @@ namespace ProductManager2
     {
         Global g = new Global();
         String number;
-        public DetailForm(String number)
+        OracleConnection conn = null;
+        public DetailForm(String number, OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
             this.number = number;
             runQuery(number);
         }
@@ -25,7 +28,7 @@ namespace ProductManager2
         {
             try
             {
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 SortedList<String, String> productlist = productdao.GetProductListByNumber(number);
                 if(productlist != null)
                 {
@@ -53,7 +56,7 @@ namespace ProductManager2
         {
             try
             {
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 int RowsDeleted = productdao.deleteProduct(number);
                 if(RowsDeleted == 1)
                 {
@@ -72,7 +75,7 @@ namespace ProductManager2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ModifyForm mf = new ModifyForm(number);
+            ModifyForm mf = new ModifyForm(number, conn);
             mf.Show();
             this.Hide();
         }

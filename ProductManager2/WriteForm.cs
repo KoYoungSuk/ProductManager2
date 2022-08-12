@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace ProductManager2
 {
     public partial class WriteForm : Form
     {
+        OracleConnection conn = null; 
         Global g = new Global();
-        public WriteForm()
+        public WriteForm(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace ProductManager2
             try
             {
                 ProductDTO productdto = new ProductDTO(product_no, product_name, buy_date, buy_date_used, purpose);
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 int Rowsinserted = productdao.insertProduct(productdto);
                 if(Rowsinserted == 1)
                 {

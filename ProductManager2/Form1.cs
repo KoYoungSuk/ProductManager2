@@ -14,11 +14,13 @@ namespace ProductManager2
 {
     public partial class Form1 : Form
     {
+        OracleConnection conn;
 
         Global g = new Global();
-        public Form1()
+        public Form1(OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn; 
             runQuery(false, "product_no");
             label1.Text = "STATUS: Successfully Connected at [ " + DateTime.Now.ToString() + " ] ";
             label9.Text = g.checkOS();
@@ -28,7 +30,7 @@ namespace ProductManager2
         {
             try
             {
-                DetailForm df = new DetailForm(number);
+                DetailForm df = new DetailForm(number, conn);
                 df.Show();
             }
             catch (Exception ex)
@@ -42,7 +44,7 @@ namespace ProductManager2
             textBox1.Text = "";
             try
             {
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 DataTable dt = productdao.getProductList(desc, columnname);
                 int productnumber = productdao.getProductNumber();
                 if(dt != null)
@@ -78,12 +80,13 @@ namespace ProductManager2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ModifyForm mf = new ModifyForm(textBox1.Text);
+            ModifyForm mf = new ModifyForm(textBox1.Text, conn);
             mf.Show();
         }
 
         private void exitXToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            conn.Close(); 
             Application.Exit();
         }
 
@@ -145,7 +148,7 @@ namespace ProductManager2
         {
             try
             {
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 int RowsDeleted = productdao.deleteProduct(textBox1.Text);
                 if(RowsDeleted == 1)
                 {
@@ -170,7 +173,7 @@ namespace ProductManager2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            WriteForm wf = new WriteForm();
+            WriteForm wf = new WriteForm(conn);
             wf.Show(); 
         }
 
@@ -258,5 +261,16 @@ namespace ProductManager2
                 GC.Collect();
             }
        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Closing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
+            Application.Exit(); 
+        }
     }
 }

@@ -54,7 +54,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Version 1.0";
+            this.label2.Text = "Version 1.1";
             // 
             // label3
             // 
@@ -63,7 +63,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 15);
             this.label3.TabIndex = 2;
-            this.label3.Text = "2022-06-03";
+            this.label3.Text = "2022-08-13";
             // 
             // label4
             // 
@@ -116,8 +116,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AboutForm";
-            this.Text = "AboutForm";
             this.Load += new System.EventHandler(this.AboutForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown_Load);
             this.ResumeLayout(false);

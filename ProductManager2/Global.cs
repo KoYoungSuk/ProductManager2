@@ -10,6 +10,7 @@ namespace ProductManager2
 {
     class Global
     {
+        /*
         //ID AND PASSWORD ARE CENSORED DUE TO SECURITY ISSUE. (GITHUB)
         public String dburl = "koyoungsuk2.iptime.org";
         public String dbport = "1521";
@@ -17,6 +18,7 @@ namespace ProductManager2
         public String dbid =  "dbid";
         public String dbpw = "dbpw";
         //ID AND PASSWORD ARE CENSORED DUE TO SECURITY ISSUE. (GITHUB) 
+        */
         public Global()
         {
             

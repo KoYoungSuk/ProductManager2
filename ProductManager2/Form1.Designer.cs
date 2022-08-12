@@ -44,6 +44,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveAsExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBaseDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloadDescendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.byProductNoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,15 +61,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveAsExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -85,6 +92,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(646, 281);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 62);
@@ -95,6 +103,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(646, 413);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(137, 60);
@@ -105,6 +114,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 517);
             this.label1.Name = "label1";
@@ -129,12 +139,13 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 15);
             this.label4.TabIndex = 6;
-            this.label4.Text = "VER 20220603";
+            this.label4.Text = "VER 20220813";
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(441, 73);
+            this.label5.Location = new System.Drawing.Point(610, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(191, 15);
             this.label5.TabIndex = 7;
@@ -142,8 +153,9 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(344, 97);
+            this.label6.Location = new System.Drawing.Point(505, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(296, 15);
             this.label6.TabIndex = 8;
@@ -151,6 +163,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(108, 115);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(521, 23);
@@ -168,6 +182,7 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Location = new System.Drawing.Point(646, 213);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(137, 62);
@@ -178,6 +193,7 @@
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Location = new System.Drawing.Point(646, 144);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(137, 63);
@@ -188,6 +204,7 @@
             // 
             // button5
             // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Location = new System.Drawing.Point(646, 349);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(137, 58);
@@ -221,9 +238,21 @@
             // exitXToolStripMenuItem
             // 
             this.exitXToolStripMenuItem.Name = "exitXToolStripMenuItem";
-            this.exitXToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitXToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.exitXToolStripMenuItem.Text = "Exit(X)";
             this.exitXToolStripMenuItem.Click += new System.EventHandler(this.exitXToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(164, 6);
+            // 
+            // saveAsExcelFileToolStripMenuItem
+            // 
+            this.saveAsExcelFileToolStripMenuItem.Name = "saveAsExcelFileToolStripMenuItem";
+            this.saveAsExcelFileToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.saveAsExcelFileToolStripMenuItem.Text = "Save as Excel File";
+            this.saveAsExcelFileToolStripMenuItem.Click += new System.EventHandler(this.saveAsExcelFileToolStripMenuItem_Click);
             // 
             // dataBaseDToolStripMenuItem
             // 
@@ -322,8 +351,9 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(654, 36);
+            this.label2.Location = new System.Drawing.Point(666, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 15);
             this.label2.TabIndex = 17;
@@ -332,7 +362,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(635, 123);
+            this.label8.Location = new System.Drawing.Point(5, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 15);
             this.label8.TabIndex = 18;
@@ -340,57 +370,68 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(167, 485);
+            this.label9.Location = new System.Drawing.Point(12, 6);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(135, 15);
             this.label9.TabIndex = 19;
             this.label9.Text = "Your Operating System:";
             // 
-            // toolStripMenuItem1
+            // panel1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Location = new System.Drawing.Point(638, 118);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(163, 355);
+            this.panel1.TabIndex = 20;
             // 
-            // saveAsExcelFileToolStripMenuItem
+            // panel2
             // 
-            this.saveAsExcelFileToolStripMenuItem.Name = "saveAsExcelFileToolStripMenuItem";
-            this.saveAsExcelFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsExcelFileToolStripMenuItem.Text = "Save as Excel File";
-            this.saveAsExcelFileToolStripMenuItem.Click += new System.EventHandler(this.saveAsExcelFileToolStripMenuItem_Click);
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Location = new System.Drawing.Point(0, 479);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(801, 64);
+            this.panel2.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 541);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "ProductManager 2022-06-03";
+            this.Text = "ProductManager 2022-08-13";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,6 +473,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveAsExcelFileToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

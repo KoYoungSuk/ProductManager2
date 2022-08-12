@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,13 @@ namespace ProductManager2
 {
     public partial class ModifyForm : Form
     {
+        OracleConnection conn = null;
         Global g = new Global();
         String number;
-        public ModifyForm(String number)
+        public ModifyForm(String number, OracleConnection conn)
         {
             InitializeComponent();
+            this.conn = conn; 
             this.number = number;
             runQuery();
         }
@@ -25,7 +28,7 @@ namespace ProductManager2
         {
             try
             {
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 SortedList<String, String> productlist = productdao.GetProductListByNumber(number);
                 if(productlist != null)
                 {
@@ -59,7 +62,7 @@ namespace ProductManager2
             try
             {
                 ProductDTO productdto = new ProductDTO(product_no, product_name, buy_date, buy_date_used, purpose);
-                ProductDAO productdao = new ProductDAO(g.dburl, g.dbport, g.dbsid, g.dbid, g.dbpw);
+                ProductDAO productdao = new ProductDAO(conn);
                 int rowsUpdated = productdao.updateProduct(productdto);
                 if(rowsUpdated == 1)
                 {

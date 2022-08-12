@@ -10,37 +10,32 @@ namespace ProductManager2
 {
     internal class ProductDAO
     {
-        String db_url;
-        String db_port;
-        String db_sid;
-        String db_id;
-        String db_pw;
+      
         OracleConnection conn = null;
         Global g = new Global();
-        public ProductDAO(string db_url, string db_port, string db_sid, string db_id, string db_pw)
+        public ProductDAO(OracleConnection conn)
         {
-            this.db_url = db_url;
-            this.db_port = db_port;
-            this.db_sid = db_sid;
-            this.db_id = db_id;
-            this.db_pw = db_pw;
+            this.conn = conn; 
         }
 
+        /*
         public void connectDB()
         {
             String connstr = g.connectionString(db_url, db_port, db_sid, db_id, db_pw);
             conn = new OracleConnection(connstr);
             conn.Open();
         }
-
+        */
         public void disconnectDB()
         {
             conn.Close();
         }
+       
+
 
         public int insertProduct(ProductDTO productdto)
         {
-            connectDB();
+            //connectDB();
             String sql = "insert into product (product_no, product_name, buy_date, buy_date_used, purpose) values (:0, :1, :2, :3, :4)";
             OracleCommand icmd = new OracleCommand(sql, conn);
             icmd.BindByName = true;
@@ -50,13 +45,13 @@ namespace ProductManager2
             icmd.Parameters.Add(new OracleParameter("3", productdto.Buy_date_used));
             icmd.Parameters.Add(new OracleParameter("4", productdto.Purpose));
             int result = icmd.ExecuteNonQuery();
-            disconnectDB();
+            //disconnectDB();
             return result; 
         }
 
         public int updateProduct(ProductDTO productdto)
         {
-            connectDB();
+            //connectDB();
             String sql = "update product set product_name = :0, buy_date = :1, buy_date_used = :2, purpose= :3 where product_no = :4";
             OracleCommand ucmd = new OracleCommand(sql, conn);
             ucmd.BindByName = true;
@@ -66,24 +61,24 @@ namespace ProductManager2
             ucmd.Parameters.Add(new OracleParameter("3", productdto.Purpose));
             ucmd.Parameters.Add(new OracleParameter("4", productdto.Product_no));
             int result = ucmd.ExecuteNonQuery();
-            disconnectDB();
+            //disconnectDB();
             return result;
         }
 
         public int deleteProduct(String number)
         {
-            connectDB();
+            //connectDB();
             String sql = "delete from product where product_no = :product_no";
             OracleCommand dcmd = new OracleCommand(sql, conn);
             dcmd.BindByName = true;
             dcmd.Parameters.Add(new OracleParameter("product_no", number));
             int result = dcmd.ExecuteNonQuery();
-            disconnectDB();
+            //disconnectDB();
             return result; 
         }
         public List<MemberDTO> getMemberList()  //Login
         {
-            connectDB();
+            //connectDB();
             List<MemberDTO> memberlist = new List<MemberDTO>();
 
             String sql = "select * from member order by id";
@@ -96,13 +91,13 @@ namespace ProductManager2
                 memberlist.Add(memberdto);
             }
             dr.Close();
-            disconnectDB();
+            //disconnectDB();
             return memberlist;
         }
 
         public DataTable getProductList(Boolean desc, String columnname)
         {
-            connectDB();
+            //connectDB();
             DataTable dt = new DataTable();
             String sql = null;
             if (desc)
@@ -137,13 +132,13 @@ namespace ProductManager2
             }
             OracleDataAdapter oda = new OracleDataAdapter(sql, conn);
             oda.Fill(dt);
-            disconnectDB();
+            //disconnectDB();
             return dt;
         }
 
         public SortedList<String, String> GetProductListByNumber(String number)
         {
-            connectDB();
+            //connectDB();
             SortedList<String, String> productlist = new SortedList<String, String>();
             String sql = "select * from product where product_no =:product_no";
             OracleCommand scmd = new OracleCommand(sql, conn);
@@ -159,13 +154,13 @@ namespace ProductManager2
                 productlist["purpose"] = dr["purpose"].ToString();
             }
             dr.Close();
-            disconnectDB();
+            //disconnectDB();
             return productlist; 
         }
 
         public int getProductNumber()
         {
-            connectDB();
+            //connectDB();
             String sql = "select count(*) productnumber from product";
             int productnumber = 0;
             OracleCommand scmd = new OracleCommand(sql, conn);
@@ -175,8 +170,37 @@ namespace ProductManager2
                 productnumber = Int32.Parse(dr["productnumber"].ToString());
             }
             dr.Close();
-            disconnectDB();
+            //disconnectDB();
             return productnumber; 
+        }
+
+        public int createTable()
+        {
+            String sql = "create table PRODUCT ( product_no int not null primary key, product_name varchar2(150) not null, buy_date varchar2(100), buy_date_used varchar2(100), purpose varchar2(150) not null)";
+            OracleCommand scmd = new OracleCommand(sql, conn);
+            int result = scmd.ExecuteNonQuery();
+            scmd.Dispose();
+            return result; 
+        }
+
+        public Boolean checkTableExist()
+        {
+            String sql = "select TNAME from tab where TNAME = 'PRODUCT'";
+            OracleCommand scmd = new OracleCommand(sql, conn);
+            OracleDataReader dr = scmd.ExecuteReader();
+            Boolean existstatus = false;
+            String tablename = null;
+            if (dr.Read())
+            {
+                tablename = dr["TNAME"].ToString();
+            }
+            if(tablename != null)
+            {
+                existstatus = true; 
+            }
+            dr.Close();
+            scmd.Dispose();
+            return existstatus; 
         }
     }
 }
